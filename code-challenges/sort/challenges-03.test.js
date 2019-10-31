@@ -98,15 +98,19 @@ If two people share the same last name, alphabetize on their first name.
 If two people have the same full name, the younger one should come first. Do not worry about capitalization.
 ------------------------------------------------------------------------------------------------ */
 
-const sortPeopleBetter = (arr) => {
-  return arr.sort((a,b) => {
+const sortPeopleBetter = arr => {
+  let sortedArray = sortPeople(arr);
+  let firstNameSort = sortedArray.sort((a,b) => {
     if (a.lastName === b.lastName) {
-      return (a.firstName > b.firstName) ? 1 : -1;
-    }
-    if (a.firstName === b.firstName && a.lastName === b.lastName) {
-      return a.age - b.age;
+      return (a.firstName < b.firstName) ? -1 : (a.firstName > b.firstName) ? 1 : 0;
     }
   })
+  let ageSort = firstNameSort.sort((a,b) => {
+    if (a.firstName === b.firstName && a.lastName === b.lastName) {
+      return (a.age < b.age) ? -1 : (a.age > b.age) ? 1 : 0;
+    }
+  })
+  return ageSort;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -131,9 +135,7 @@ const meetings = [
   new Meeting('Friday', '1200', '1345'),
 ];
 
-const sortMeetingsByDay = (arr) => {
-  // Solution code here...
-};
+const sortMeetingsByDay = arr => arr.sort((a,b) => Meeting[a.dayOfWeek] - Meeting[b.dayOfWeek]);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 10 - Stretch Goal
