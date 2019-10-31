@@ -36,9 +36,7 @@ Write a function named alphabetizeBetter that takes in an array of strings and r
 For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, and so is ['alphabet', 'Alphabet', 'carrot', 'Zebra'].
 ------------------------------------------------------------------------------------------------ */
 
-const alphabetizeBetter = (arr) => {
-  return arr.sort((a,b) => a.localeCompare(b));
-};
+const alphabetizeBetter = arr => arr.sort((a,b) => a.localeCompare(b));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -53,9 +51,7 @@ Here is an example of the input:
 ];
 ------------------------------------------------------------------------------------------------ */
 
-const sortByPrice = (arr) => {
-  return arr.sort((a,b) => a.price - b.price);
-};
+const sortByPrice = arr => arr.sort((a,b) => a.price - b.price);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -98,11 +94,15 @@ If two people share the same last name, alphabetize on their first name.
 If two people have the same full name, the younger one should come first. Do not worry about capitalization.
 ------------------------------------------------------------------------------------------------ */
 
-const sortPeopleBetter = (arr) => {
+const sortPeopleBetter = arr => {
   return arr.sort((a,b) => {
     if (a.lastName === b.lastName) {
-      return a.firstName - b.firstName;
+      if (a.firstName === b.firstName) {
+        return a.age - b.age
+      }
+      return a.firstName.localeCompare(b.firstName);
     }
+    return a.lastName.localeCompare(b.lastName);
   })
 };
 
@@ -128,8 +128,16 @@ const meetings = [
   new Meeting('Friday', '1200', '1345'),
 ];
 
-const sortMeetingsByDay = (arr) => {
-  // Solution code here...
+const sortMeetingsByDay = arr => {
+  const dayOrder = {
+    Monday: 1,
+    Tuesday: 2,
+    Wednesday: 3,
+    Thursday: 4,
+    Friday: 5,
+  }
+
+  return arr.sort((a,b) => dayOrder[a.dayOfWeek] - dayOrder[b.dayOfWeek])
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -142,8 +150,16 @@ Sort the meetings in the order that they start. If two meetings start at the sam
 You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 ------------------------------------------------------------------------------------------------ */
 
-const sortSchedule = (arr) => {
-  // Solution code here...
+const sortSchedule = arr => {
+  arr.sort((a,b) => {
+    let subtractMeetingA = (parseInt(a.end) - parseInt(a.start));
+    let subtractMeetingB = (parseInt(b.end) - parseInt(b.start));
+    if (a.start === b.start && a.dayOfWeek === b.dayOfWeek) {
+      return subtractMeetingA - subtractMeetingB
+    }
+    return a.start - b.start
+  })
+  return sortMeetingsByDay(arr)
 };
 
 /* ------------------------------------------------------------------------------------------------
