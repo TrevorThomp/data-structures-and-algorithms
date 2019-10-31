@@ -36,9 +36,7 @@ Write a function named alphabetizeBetter that takes in an array of strings and r
 For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, and so is ['alphabet', 'Alphabet', 'carrot', 'Zebra'].
 ------------------------------------------------------------------------------------------------ */
 
-const alphabetizeBetter = (arr) => {
-  return arr.sort((a,b) => a.localeCompare(b));
-};
+const alphabetizeBetter = arr => arr.sort((a,b) => a.localeCompare(b));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -53,9 +51,7 @@ Here is an example of the input:
 ];
 ------------------------------------------------------------------------------------------------ */
 
-const sortByPrice = (arr) => {
-  return arr.sort((a,b) => a.price - b.price);
-};
+const sortByPrice = arr => arr.sort((a,b) => a.price - b.price);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
