@@ -150,8 +150,16 @@ Sort the meetings in the order that they start. If two meetings start at the sam
 You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 ------------------------------------------------------------------------------------------------ */
 
-const sortSchedule = (arr) => {
-  // Solution code here...
+const sortSchedule = arr => {
+  arr.sort((a,b) => {
+    let subtractMeetingA = (parseInt(a.end) - parseInt(a.start));
+    let subtractMeetingB = (parseInt(b.end) - parseInt(b.start));
+    if (a.start === b.start && a.dayOfWeek === b.dayOfWeek) {
+      return subtractMeetingA - subtractMeetingB
+    }
+    return a.start - b.start
+  })
+  return sortMeetingsByDay(arr)
 };
 
 /* ------------------------------------------------------------------------------------------------
