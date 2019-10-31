@@ -131,7 +131,17 @@ const meetings = [
   new Meeting('Friday', '1200', '1345'),
 ];
 
-const sortMeetingsByDay = arr => arr.sort((a,b) => Meeting[a.dayOfWeek] - Meeting[b.dayOfWeek]);
+const sortMeetingsByDay = arr => {
+  const dayOrder = {
+    Monday: 1,
+    Tuesday: 2,
+    Wednesday: 3,
+    Thursday: 4,
+    Friday: 5,
+  }
+
+  return arr.sort((a,b) => dayOrder[a.dayOfWeek] - dayOrder[b.dayOfWeek])
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 10 - Stretch Goal
