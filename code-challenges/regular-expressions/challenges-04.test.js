@@ -12,8 +12,9 @@ For example:
 'hello world' returns false
 ------------------------------------------------------------------------------------------------ */
 
-const isNum = (input) => {
-  // Solution code here...
+const isNum = input => {
+  let myRegex = /[0-9]/ig.test(input);
+  return myRegex;
 };
 
 /* ------------------------------------------------------------------------------------------------
