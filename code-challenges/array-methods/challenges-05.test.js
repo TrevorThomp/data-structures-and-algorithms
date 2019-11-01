@@ -15,7 +15,7 @@ const howMuchPencil = (str) => {
   for (let letter in str + 1) {
     result.push(str.slice(letter));
   }
-  
+
   return result;
 };
 
@@ -144,9 +144,7 @@ Write a function named removeVowels that takes in a string and returns a new str
 For example, removeVowels('gregor') returns 'grgr'.
 ------------------------------------------------------------------------------------------------ */
 
-const removeVowels = (str) => {
-  // Solution code here...
-};
+const removeVowels = str => str.replace(/[aeiou]/g, '');
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 10 - Stretch Goal
