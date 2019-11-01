@@ -25,7 +25,7 @@ Write a function named isCapitalized that takes in a string. This function shoul
 Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
-const isCapitalized = (str) => {
+const isCapitalized = str => {
   let myRegex = /[A-Z]\w+/g;
   let match = str.match(myRegex);
   if (match === null) {
@@ -40,7 +40,7 @@ CHALLENGE 3
 Write a function named citiesAtoJ that takes in an array of city names and uses a regular expression pattern to return a new array containing any cities that begin with the letters A through J, inclusive.
 ------------------------------------------------------------------------------------------------ */
 
-const citiesAtoJ = (arr) => {
+const citiesAtoJ = arr => {
   let myRegex = /^[A-J].*/g;
   let newArray = [];
 
@@ -95,7 +95,7 @@ The function should return a string containing the consonants in their original 
 For example, 'Welcome to Code 301!' will return 'W_lc_m_ t_ C_d_ 301!'.
 ------------------------------------------------------------------------------------------------ */
 
-let hangman = (str) => {
+let hangman = str => {
   let myRegex = /[aeiou]/gi;
   return str.replace(myRegex, '_');
 };
@@ -112,7 +112,7 @@ Hint: All of these words end with the letters "ells".
 
 const seashells = 'She sells seashells by the seashore. The shells she sells are surely seashells. So if she sells shells on the seashore, I\'m sure she sells seashore shells.';
 
-const findShells = (str) => {
+const findShells = str => {
   let myRegex = /(se)*a*s*h*e(lls)/g;
   return str.match(myRegex);
 };
