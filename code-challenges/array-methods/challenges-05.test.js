@@ -82,9 +82,11 @@ Write a function named splitFoods that uses split to produce the same output as 
 You may also use other string or array methods.
 ------------------------------------------------------------------------------------------------ */
 
-const splitFoods = (recipe) => {
+const splitFoods = recipe => {
   let result = [];
-  // Solution code here...
+
+  recipe.ingredients.forEach(item => result.push(item.split(' ').slice(2).join(' ')));
+
   return result;
 };
 
