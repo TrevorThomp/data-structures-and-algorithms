@@ -186,8 +186,10 @@ For example, extractVowels('gregor') returns ['grgr', 'eo'].
 Similarly, extractVowels('The quick brown fox') returns ['Th qck brwn fx', 'eioou']
 ------------------------------------------------------------------------------------------------ */
 
-const extractVowels = (str) => {
-  // Solution code here...
+const extractVowels = str => {
+  const constant = str.replace(/[aeiou]/g, '');
+  const vowelAlphabetized = str.replace(/[^aeiou]/g, '').split('').sort().join('');
+  return [constant, vowelAlphabetized];
 };
 
 /* ------------------------------------------------------------------------------------------------
