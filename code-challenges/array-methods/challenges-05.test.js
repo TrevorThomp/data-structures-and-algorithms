@@ -148,7 +148,6 @@ const removeLastCharacters = (str, numberOfCharacters) => {
   for (let i = 0; i < numberOfCharacters; i++) {
     newString.pop();
   }
-
   return newString.join('');
 };
 
@@ -160,8 +159,15 @@ Write a function named totalSumCSV that, given a string of comma-separated value
 
 const totalSumCSV = (str) => {
   let total = 0;
-  // Solution code here...
-  return total;
+
+  let numArr = str.split(',');
+
+  for (let num in numArr) {
+    numArr[num] = parseInt(numArr[num], 10)
+    total = () => numArr.reduce((a,b) => a + b, 0);
+  }
+
+  return total();
 };
 
 
