@@ -95,9 +95,7 @@ const snorlaxAbilities = {
   weight: 4600,
 };
 
-const extractAbilities = (arr) => {
-  // Solution code here...
-};
+const extractAbilities = arr => arr.map(abilities => abilities.ability.name);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7
@@ -138,8 +136,10 @@ const snorlaxStats = {
   weight: 4600,
 };
 
-const extractStats = (arr) => {
-  // Solution code here...
+const extractStats = arr => {
+  return arr.map(index => {
+    return {name: index.stat.name, total: index.effort + index.baseStat}
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
