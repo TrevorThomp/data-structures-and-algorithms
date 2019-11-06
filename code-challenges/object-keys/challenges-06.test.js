@@ -143,7 +143,9 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 
 const houseSize = (arr) => {
   const sizes = [];
- 
+   
+
+
   Object.values(arr).forEach(person => {
     let sum = 1;
 
@@ -178,7 +180,19 @@ const deceasedSpouses = ['Catelyn', 'Lysa', 'Robert', 'Khal Drogo', 'Alerie'];
 
 const houseSurvivors = (arr) => {
   const survivors = [];
-  // Solution code here...
+  
+  Object.values(arr).forEach(person => {
+    let sum = 1;
+
+   
+    if (person.spouse) sum++;
+    person.children.forEach(() => sum++);
+    survivors.push({
+      house: person.house,
+      members: sum
+    })
+  })
+
   return survivors;
 };
 
