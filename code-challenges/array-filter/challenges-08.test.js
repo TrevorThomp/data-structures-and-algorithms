@@ -83,9 +83,9 @@ Write a function named getStatName that is an extension of your getBaseStatGreat
 For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 'special-attack'].
 ------------------------------------------------------------------------------------------------ */
 
-const getStatName = (arr, minBaseStat) => {
-  // Solution code here...
-};
+const getStatName = (arr, minBaseStat) => arr
+  .filter(stat => stat.baseStat > minBaseStat)
+  .map(name => name.stat.name);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -136,9 +136,7 @@ const characters = [
   },
 ];
 
-const getCharactersWithoutChildren = (arr) => {
-  // Solution code here...
-};
+const getCharactersWithoutChildren = arr => arr.filter(index => !(index.children));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
@@ -148,9 +146,9 @@ Write a function named evenOddNumericValues that, given an array as input, uses 
 For example: evenOddNumericValues(['Gregor', 2, 4, 1]) returns ['even', 'even', 'odd'].
 ------------------------------------------------------------------------------------------------ */
 
-const evenOddNumericValues = (arr) => {
-  // Solution code here...
-};
+const evenOddNumericValues = arr => arr
+  .filter(num => typeof(num) === 'number')
+  .map(num => !(num % 2) ? 'even' : 'odd');
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
