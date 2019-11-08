@@ -213,7 +213,12 @@ const snorlaxData = {
 };
 
 const extractStat = (statName, arr) => {
-  // Solution code here...
+  return arr.reduce((acc,curr) => {
+    console.log(statName)
+    console.log(curr.stat.name)
+    console.log(curr.stat)
+      return curr.stat;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -226,9 +231,13 @@ Write a function named extractChildren that, given the array of characters from 
 2) Then, uses reduce to return an array of all the children's names in the filtered array
 ------------------------------------------------------------------------------------------------ */
 
-const extractChildren = (arr) => {
-  // Solution code here...
-};
+const extractChildren = (arr) => arr
+  .filter(char => /[a]/i.test(char.name))
+  .reduce((acc,curr) => {
+    curr.children ? acc.push(curr.children) : false;
+    return acc
+  }, [])
+  .reduce((acc,curr) => acc.concat(curr));
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
