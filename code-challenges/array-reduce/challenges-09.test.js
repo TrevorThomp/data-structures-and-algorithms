@@ -132,8 +132,11 @@ const characters = [
   },
 ];
 
-const countNumberOfChildren = (arr) => {
-  // Solution code here...
+const countNumberOfChildren = arr => {
+  return arr.reduce((acc,curr) => {
+    curr.children ? acc += curr.children.length : false;
+    return acc;
+  }, 0)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -144,9 +147,7 @@ Write a function that, given an array of numbers as input, uses reduce to calcul
 Hint: The accumulator should begin as { count: 0, sum: 0 }
 ------------------------------------------------------------------------------------------------ */
 
-const calculateAverage = (arr) => {
-  // Solution code here...
-};
+const calculateAverage = arr => arr.reduce((acc,curr) => acc + curr, 0) / arr.length;
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -166,7 +167,10 @@ const isPrime = (value) => {
 };
 
 const countPrimeNumbers = (arr) => {
-  // Solution code here...
+  return arr.reduce((acc,curr) => {
+    isPrime(curr) ? acc++ : false;
+    return acc
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -209,7 +213,12 @@ const snorlaxData = {
 };
 
 const extractStat = (statName, arr) => {
-  // Solution code here...
+  return arr.reduce((acc,curr) => {
+    if (statName === curr.stat.name) return curr.stat;
+    else {
+      return null
+    }
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -222,9 +231,13 @@ Write a function named extractChildren that, given the array of characters from 
 2) Then, uses reduce to return an array of all the children's names in the filtered array
 ------------------------------------------------------------------------------------------------ */
 
-const extractChildren = (arr) => {
-  // Solution code here...
-};
+const extractChildren = (arr) => arr
+  .filter(char => /[a]/i.test(char.name))
+  .reduce((acc,curr) => {
+    curr.children ? acc.push(curr.children) : false;
+    return acc
+  }, [])
+  .reduce((acc,curr) => acc.concat(curr));
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
