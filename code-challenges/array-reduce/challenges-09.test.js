@@ -212,14 +212,8 @@ const snorlaxData = {
   weight: 4600,
 };
 
-const extractStat = (statName, arr) => {
-  return arr.reduce((acc,curr) => {
-    if (statName === curr.stat.name) return curr.stat;
-    else {
-      return null
-    }
-  }, 0);
-};
+const extractStat = (statName, arr) => arr
+  .reduce((acc,curr) => curr.stat.name === statName ? acc = curr: acc, null);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8 - Stretch Goal
@@ -231,13 +225,9 @@ Write a function named extractChildren that, given the array of characters from 
 2) Then, uses reduce to return an array of all the children's names in the filtered array
 ------------------------------------------------------------------------------------------------ */
 
-const extractChildren = (arr) => arr
+const extractChildren = arr => arr
   .filter(char => /[a]/i.test(char.name))
-  .reduce((acc,curr) => {
-    curr.children ? acc.push(curr.children) : false;
-    return acc
-  }, [])
-  .reduce((acc,curr) => acc.concat(curr));
+  .reduce((acc,curr) => curr.children ? acc.concat(curr.children) : acc, [])
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
