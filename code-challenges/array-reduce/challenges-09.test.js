@@ -214,10 +214,10 @@ const snorlaxData = {
 
 const extractStat = (statName, arr) => {
   return arr.reduce((acc,curr) => {
-    console.log(statName)
-    console.log(curr.stat.name)
-    console.log(curr.stat)
-      return curr.stat;
+    if (statName === curr.stat.name) return curr.stat;
+    else {
+      return null
+    }
   }, 0);
 };
 
