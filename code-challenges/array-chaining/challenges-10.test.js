@@ -84,7 +84,7 @@ let starWarsData = [{
   eye_color: 'red',
   birth_year: '33BBY',
   gender: 'n/a'
-},
+}, 
 {
   name: 'Darth Vader',
   height: '202',
@@ -106,9 +106,9 @@ let starWarsData = [{
   gender: 'female'
 }];
 
-let findMaleAndFemale = (data) => {
-  // Solution code here...
-};
+let findMaleAndFemale = data => data
+  .filter(index => index.gender === 'male' || index.gender === 'female')
+  .map(index => index.name).join(' and ');
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
