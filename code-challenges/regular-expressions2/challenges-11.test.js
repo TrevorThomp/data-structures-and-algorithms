@@ -8,9 +8,7 @@ Write a function named validatePin that uses a regular expression pattern to val
 If the PIN is four numerical digits long, return true. Otherwise, return false.
 ------------------------------------------------------------------------------------------------ */
 
-const validatePin = (pin) => {
-  // Solution code here...
-};
+const validatePin = (pin) => /\b\d{4}\b/g.test(pin)
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -53,9 +51,7 @@ Your function should include a single regular expression pattern that matches an
 Return either true or false.
 ------------------------------------------------------------------------------------------------ */
 
-const validatePhoneNumber = (phoneNumber) => {
-  return /^(\d{3}|\(\d{3}\))-? ?\d{3}-? ?\d{4}$/.test(phoneNumber);
-};
+const validatePhoneNumber = (phoneNumber) => /^(\d{3}|\(\d{3}\))-? ?\d{3}-? ?\d{4}$/.test(phoneNumber);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4 - Stretch Goal
