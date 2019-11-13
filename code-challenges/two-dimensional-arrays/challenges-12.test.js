@@ -128,9 +128,9 @@ const weeklyTemperatures = [
   [65, 56, 55, 52, 55, 62, 57],
 ];
 
-const averageDailyTemperature = (weather) => {
-  // Solution code here...
-};
+const averageDailyTemperature = weather => weather
+  .reduce((acc,curr) => acc.concat(curr))
+  .reduce((acc,curr) => (acc+curr)) / 28
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7
