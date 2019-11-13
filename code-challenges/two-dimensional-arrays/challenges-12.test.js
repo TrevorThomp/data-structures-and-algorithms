@@ -149,8 +149,16 @@ let lowestWeeklyTemperatureData = [
   [65, 56, 55, 52, 55, 62, 57],
 ];
 
-const lowestWeeklyAverage = (weather) => {
-  // Solution code here...
+const lowestWeeklyAverage = weather => {
+  let lowTemp = 100;
+  weather.forEach(item => {
+    let weekTotal = 0;
+    for (let i = 0; i < item.length; i++) {
+      weekTotal += item[i]
+    }
+    lowTemp > weekTotal / item.length ? lowTemp = weekTotal / item.length : false;
+  })
+  return lowTemp
 };
 
 /* ------------------------------------------------------------------------------------------------
