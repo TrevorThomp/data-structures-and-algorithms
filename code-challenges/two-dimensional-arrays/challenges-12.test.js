@@ -98,9 +98,7 @@ Here is a sample board:
 The top row of the board is considered row zero and row numbers increase as they go down.
 ------------------------------------------------------------------------------------------------ */
 
-const battleship = (board, row, col) => {
-  //  Solution code here...
-};
+const battleship = (board, row, col) => board[row][col] === '#' ? 'hit' : 'miss';
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
