@@ -150,15 +150,15 @@ let lowestWeeklyTemperatureData = [
 ];
 
 const lowestWeeklyAverage = weather => {
-  let lowTemp = 100;
+  let temp = 100;
   weather.forEach(item => {
     let weekTotal = 0;
     for (let i = 0; i < item.length; i++) {
       weekTotal += item[i]
     }
-    lowTemp > weekTotal / item.length ? lowTemp = weekTotal / item.length : false;
+    temp > weekTotal / item.length ? temp = weekTotal / item.length : false;
   })
-  return lowTemp
+  return temp
 };
 
 /* ------------------------------------------------------------------------------------------------
