@@ -108,9 +108,9 @@ Write a function named calculateProduct that takes in a two-dimensional array of
 For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 ------------------------------------------------------------------------------------------------ */
 
-const calculateProduct = (numbers) => {
-  // Solution code here...
-};
+const calculateProduct = numbers => numbers
+  .reduce((acc,curr) => acc.concat(curr))
+  .reduce((acc,curr) => acc * curr)
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
