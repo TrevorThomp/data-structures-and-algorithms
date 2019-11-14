@@ -21,8 +21,8 @@ Write a function named findHappiness that takes in an array of strings and retur
 For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this is great :)', ':)))))']
 ------------------------------------------------------------------------------------------------ */
 
-const findHappiness = (arr) => arr
-  .filter(x => x.includes(':)'));
+const findHappiness = arr => arr
+  .filter(x => x.includes(':)'))
 
 
 
@@ -34,7 +34,7 @@ Write a function named standardizePhoneNumbers that takes in an array of phone n
 For example, (123) 456-7890 returns 1234567890
 ------------------------------------------------------------------------------------------------ */
 
-const standardizePhoneNumbers = (arr) => arr
+const standardizePhoneNumbers = arr => arr
   .map(num => `${num.substring(1,4)}${num.substring(6,9)}${num.substring(10)}`)
 
 /* ------------------------------------------------------------------------------------------------
@@ -45,9 +45,10 @@ Write a function named onlyOddChars that takes in a string and returns only the 
 For example, 'abcdefg' returns 'bdf'
 ------------------------------------------------------------------------------------------------ */
 
-const onlyOddChars = (str) => {
-  // Solution code here...
-};
+const onlyOddChars = str => str
+  .split('')
+  .filter((x,idx) => idx % 2 === 1)
+  .join('')
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
