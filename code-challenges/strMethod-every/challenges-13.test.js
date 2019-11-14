@@ -34,9 +34,8 @@ Write a function named standardizePhoneNumbers that takes in an array of phone n
 For example, (123) 456-7890 returns 1234567890
 ------------------------------------------------------------------------------------------------ */
 
-const standardizePhoneNumbers = (arr) => {
-  // Solution code here...
-};
+const standardizePhoneNumbers = (arr) => arr
+  .map(num => `${num.substring(1,4)}${num.substring(6,9)}${num.substring(10)}`)
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
