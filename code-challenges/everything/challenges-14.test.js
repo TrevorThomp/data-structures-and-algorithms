@@ -82,9 +82,9 @@ let starWarsData = [{
   gender: 'n/a'
 }];
 
-let biggerThanLuke = (arr) => {
-  // Solution code here...
-};
+let biggerThanLuke = arr => arr
+  .filter(x => x.mass > 77)
+  .map(x => x.name).join(' - ')
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
